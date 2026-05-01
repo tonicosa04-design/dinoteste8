@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore o mundo incrível dos dinossauros!"/>
+  <title>Lagartixoes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ============================================
+    HEADER — Cabeçalho da página
+    Contém a navegação principal (NAV)
+  ============================================ -->
+  <header class="header">
+    <nav class="nav">
+      <!-- Logo da marca -->
+      <div class="nav__logo">
+        <span class="nav__logo-icon">🦖</span>
+        <span class="nav__logo-text"; style="font-weight:bold">Thayna Paleontologia</span>
+        <span class="nav__logo-icon">🦖</span>
+      </div>
+      <!-- Links de navegação -->
+      <!-- <ul> = lista não ordenada | <li> = item da lista | <a> = link -->
+      <ul class="nav__links">
+        <li><a href="#inicio" class="nav__link">Início</a></li>
+        <li><a href="#sobre" class="nav__link">Sobre</a></li>
+        <li><a href="#dinossauros" class="nav__link">Dinossauros</a></li>
+        <li><a href="#curiosidades" class="nav__link">Curiosidades</a></li>
+        <li><a href="#eras" class="nav__link">Eras</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================================
+    MAIN — Conteúdo principal da página
+    Tudo que é conteúdo "real" fica aqui dentro
+  ============================================ -->
+  <main>
+
+    <!-- ==========================================
+      SEÇÃO HERO — A primeira coisa que o usuário vê
+      id="inicio" permite que o link do nav funcione
+    ========================================== -->
+    <section class="hero" id="inicio">
+      <!-- Decoração de fundo (só visual, sem conteúdo) -->
+      <div class="hero__bg-shapes">
+        <div class="shape shape--1"></div>
+        <div class="shape shape--2"></div>
+        <div class="shape shape--3"></div>
+      </div>
+
+      <div class="hero__content">
+        <!-- 
+          HIERARQUIA DE TÍTULOS no HTML:
+          <h1> = Título principal (só 1 por página!)
+          <h2> = Subtítulo
+          <h3>, <h4>... = Sub-subtítulos
+        -->
+        <p class="hero__eyebrow">Bem-vindo ao</p>
+        <h1 class="hero__title">
+          Mundo dos<br />
+          <span class="hero__title--highlight">Dinossauros</span>
+        </h1>
+        <p class="hero__description">
+          Viaje 230 milhões de anos no passado e descubra os seres mais
+          fascinantes que já pisaram na Terra. Curiosidades, fatos incríveis
+          e muito mais!
+        </p>
+
+        <!-- Botões de ação (CTA = Call To Action) -->
+        <div class="hero__actions">
+          <a href="#dinossauros" class="btn btn--primary">Explorar Agora</a>
+          <a href="#curiosidades" class="btn btn--secondary">Curiosidades</a>
+        </div>
+
+        <!-- Estatísticas rápidas -->
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__number">230M</span>
+            <span class="stat__label">Anos atrás</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">700+</span>
+            <span class="stat__label">Espécies</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">165M</span>
+            <span class="stat__label">Anos de domínio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emoji decorativo gigante -->
+      <div class="hero__dino-art">
+        <!-- <span class="dino-emoji">🦕</span> -->
+        <img src="img/rexgla.gif" width="375">
+        <div class="dino-shadow"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+      SEÇÃO SOBRE — Texto introdutório
+    ========================================== -->
+    <section class="sobre" id="sobre">
+      <div class="container">
+        <div class="sobre__grid">
+          <!-- Coluna de texto -->
+          <div class="sobre__text">
+            <!-- 
+              <h2> é o segundo título mais importante
+              class="section__title" para reutilizar o estilo
+            -->
+            <h2 class="section__title">O que eram os<br /><em>Dinossauros?</em></h2>
+            <!-- <p> = parágrafo -->
+            <p class="sobre__paragraph">
+              Os dinossauros foram um grupo de répteis que dominaram a Terra
+              por aproximadamente <strong>165 milhões de anos</strong>. Eles surgiram
+              no período Triássico, há cerca de 230 milhões de anos, e foram extintos
+              no final do período Cretáceo, há 66 milhões de anos.
+            </p>
+            <p class="sobre__paragraph">
+              Ao contrário do que muitos pensam, os dinossauros não eram todos
+              gigantes — existiam espécies do tamanho de um frango! E as aves
+              modernas são, na verdade, <strong>dinossauros vivos</strong>.
+            </p>
+            <!-- 
+              <ul> = lista com marcadores
+              Use para listar itens sem ordem específica
+            -->
+            <ul class="sobre__list">
+              <li>🥚 Todos os dinossauros botavam ovos</li>
+              <li>🦴 Tinham ossos ocos (como aves)</li>
+              <li>🌍 Viveram em todos os continentes</li>
+              <li>🐦 Deram origem às aves modernas</li>
+            </ul>
+          </div>
+
+          <!-- Coluna visual -->
+          <div class="sobre__visual">
+            <div class="fossil-card">
+              <span class="fossil-card__icon">🦴</span>
+              <h3 class="fossil-card__title">Fóssil do Dia</h3>
+              <p class="fossil-card__text">
+                O fóssil mais completo de T-Rex já encontrado é
+                o <strong>"Sue"</strong>, descoberto em 1990 nos EUA.
+                Tem 12,3 metros de comprimento!
+              </p>
+              <a href="https://maps.google.com/?q=Field+Museum+Chicago" target="_blank" rel="noopener noreferrer">
+  <div class="fossil-card__badge">Museu de Chicago</div>
+</a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+      SEÇÃO DINOSSAUROS — Cards com espécies
+    ========================================== -->
+    <section class="dinossauros" id="dinossauros">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title section__title--light">Espécies<br /><em>Incríveis</em></h2>
+          <p class="section__subtitle">Conheça alguns dos dinossauros mais famosos da história</p>
+        </div>
+
+        <!-- 
+          GRID DE CARDS
+          Cada card usa a classe "dino-card"
+          O CSS usa CSS Grid para organizar os cards
+        -->
+        <div class="dino-grid">
+
+          <!-- CARD 1 -->
+          <article class="dino-card">
+            <!-- 
+              <article> = conteúdo independente (um card, um post, etc.)
+              É uma tag SEMÂNTICA do HTML5
+            -->
+            <div class="dino-card__emoji">
+  <img src="img/nofa.jpg">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--carnivore">Carnívoro</span>
+                <span class="badge badge--era">Cretáceo</span>
+              </div>
+              <h3 class="dino-card__name">Fyrannosaurus Fex</h3>
+              <p class="dino-card__latin"><em>Tyrannosaurus rex</em></p>
+              <p class="dino-card__desc">
+                O "rei dos répteis tiranos". Com até 13 metros de comprimento
+                e uma mordida 3x mais forte que a de um leão, era o predador
+                supremo do Cretáceo.
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">13 metros</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">9 toneladas</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">América do Norte</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="dino-card dino-card--featured">
+            <div class="dino-card__emoji">
+  <img src="img/braquimeme.jpg">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--herbivore">Herbívoro</span>
+                <span class="badge badge--era">Jurássico</span>
+              </div>
+              <h3 class="dino-card__name">Brachiosaurus</h3>
+              <p class="dino-card__latin"><em>Brachiosaurus altithorax</em></p>
+              <p class="dino-card__desc">
+                Um dos maiores animais que já pisaram na Terra. Com seu
+                pescoço gigantesco, conseguia alcançar folhas no topo de
+                árvores com mais de 9 metros de altura.
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">26 metros</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">60 toneladas</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">África e EUA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="dino-card">
+            <div class="dino-card__emoji">
+  <img src="img/velocimeme.jpg">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--carnivore">Carnívoro</span>
+                <span class="badge badge--era">Cretáceo</span>
+              </div>
+              <h3 class="dino-card__name">Velocirapopór</h3>
+              <p class="dino-card__latin"><em>Velociraptor mongoliensis</em></p>
+              <p class="dino-card__desc">
+                Muito menor do que nos filmes! Na vida real tinha o tamanho
+                de um peru. Era coberto de penas e incrivelmente inteligente
+                para um réptil.
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">1,8 metro</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">15 kg</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">Ásia Central</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="dino-card">
+            <div class="dino-card__emoji">
+  <img src="img/estogomeme.jpeg">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--herbivore">Herbívoro</span>
+                <span class="badge badge--era">Jurássico</span>
+              </div>
+              <h3 class="dino-card__name">Stegosaurus</h3>
+              <p class="dino-card__latin"><em>Stegosaurus stenops</em></p>
+              <p class="dino-card__desc">
+                Famoso pelas placas ósseas nas costas e os espinhos na cauda.
+                Tinha um cérebro do tamanho de uma laranja para um corpo de
+                5 toneladas!
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">9 metros</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">5 toneladas</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">América do Norte</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- CARD 5 -->
+          <article class="dino-card">
+            <div class="dino-card__emoji">
+  <img src="img/mosameme.jpg">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--carnivore">Carnívoro</span>
+                <span class="badge badge--era">Cretáceo</span>
+              </div>
+              <h3 class="dino-card__name">Mosassauro</h3>
+              <p class="dino-card__latin"><em>Mosasaurus hoffmannii</em></p>
+              <p class="dino-card__desc">
+                O terror dos oceanos do Cretáceo. Não era tecnicamente um
+                dinossauro, mas um réptil marinho gigante com dois conjuntos
+                de mandíbulas!
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">18 metros</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">14 toneladas</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">Oceano Mundial</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 6 -->
+          <article class="dino-card">
+            <div class="dino-card__emoji">
+  <img src="img/espinomeme.jpg" width="150">
+</div>
+            <div class="dino-card__body">
+              <div class="dino-card__badges">
+                <span class="badge badge--carnivore">Carnívoro</span>
+                <span class="badge badge--era">Cretáceo</span>
+              </div>
+              <h3 class="dino-card__name">Spinosaurus</h3>
+              <p class="dino-card__latin"><em>Spinosaurus aegyptiacus</em></p>
+              <p class="dino-card__desc">
+                Maior predador terrestre de todos os tempos, superando até o
+                T-Rex. Vivia semi-aquático, caçando peixes nos rios com sua
+                "vela" nas costas.
+              </p>
+              <div class="dino-card__specs">
+                <div class="spec">
+                  <span class="spec__icon">📏</span>
+                  <span class="spec__label">Tamanho</span>
+                  <span class="spec__value">15 metros</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">⚖️</span>
+                  <span class="spec__label">Peso</span>
+                  <span class="spec__value">20 toneladas</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__icon">📍</span>
+                  <span class="spec__label">Habitat</span>
+                  <span class="spec__value">Norte da África</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <!-- fim .dino-grid -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+      SEÇÃO CURIOSIDADES — Lista de fatos
+    ========================================== -->
+    <section class="curiosidades" id="curiosidades">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Curiosidades<br /><em>Surpreendentes</em></h2>
+        </div>
+
+        <div class="curiosidades__grid">
+
+          <!-- Cada .fact-card é um card de curiosidade -->
+          <div class="fact-card">
+            <div class="fact-card__number">01</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">Aves São Dinossauros</h3>
+              <p class="fact-card__text">
+                Cientificamente, as aves são classificadas como dinossauros
+                aviários. O pombo na sua janela é literalmente um dinossauro!
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-card__number">02</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">T-Rex e Humanos: Separados por Mais Tempo</h3>
+              <p class="fact-card__text">
+                O T-Rex viveu mais perto no tempo dos humanos do que do
+                Stegosaurus. Os dois foram separados por 80 milhões de anos!
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-card__number">03</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">Dinossauros no Brasil!</h3>
+              <p class="fact-card__text">
+                O Brasil tem uma das maiores variedades de fósseis do mundo.
+                O <strong>Irritator</strong> foi descoberto no Ceará e o
+                <strong>Uberabatitan</strong> em Minas Gerais!
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-card__number">04</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">Sangue Quente</h3>
+              <p class="fact-card__text">
+                Pesquisas recentes mostram que muitos dinossauros eram
+                endotérmicos (sangue quente), como mamíferos e aves, e não
+                reptéis de sangue frio.
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-card__number">05</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">Penas!</h3>
+              <p class="fact-card__text">
+                Vários dinossauros carnívoros tinham penas. O famoso
+                Velociraptor era provavelmente coberto de penas coloridas,
+                como uma ema gigante com garras afiadas.
+              </p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-card__number">06</div>
+            <div class="fact-card__content">
+              <h3 class="fact-card__title">A Extinção em Massa</h3>
+              <p class="fact-card__text">
+                Há 66 milhões de anos, um asteroide de 10km atingiu o México
+                a 70.000 km/h, causando uma extinção que eliminou 75% de
+                toda a vida na Terra.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+      SEÇÃO ERAS — Timeline das eras geológicas
+    ========================================== -->
+    <section class="eras" id="eras">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title section__title--light">As Eras dos<br /><em>Dinossauros</em></h2>
+          <p class="section__subtitle">A Era Mesozoica dividida em 3 períodos</p>
+        </div>
+
+        <!-- 
+          TIMELINE — lista de períodos geológicos
+          Usa flexbox/grid no CSS para o layout visual
+        -->
+        <div class="timeline">
+
+          <div class="timeline__item">
+            <div class="timeline__dot">🌋</div>
+            <div class="timeline__content">
+              <div class="timeline__period">252 — 201 milhões de anos</div>
+              <h3 class="timeline__era">Triássico</h3>
+              <p class="timeline__desc">
+                O início! Os primeiros dinossauros surgiram após a maior
+                extinção em massa da história (que eliminou 96% das espécies).
+                O clima era quente e seco, sem calotas polares.
+              </p>
+              <div class="timeline__dinos">
+                <span>Eoraptor</span>
+                <span>Herrerasaurus</span>
+                <span>Plateosaurus</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item timeline__item--right">
+            <div class="timeline__dot">🌿</div>
+            <div class="timeline__content">
+              <div class="timeline__period">201 — 145 milhões de anos</div>
+              <h3 class="timeline__era">Jurássico</h3>
+              <p class="timeline__desc">
+                A era de ouro dos dinossauros! Os gigantes saurópodes (como
+                o Brachiosaurus) dominavam a Terra. As primeiras aves
+                evoluíram a partir de dinossauros emplumados.
+              </p>
+              <div class="timeline__dinos">
+                <span>Brachiosaurus</span>
+                <span>Stegosaurus</span>
+                <span>Alossauro</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot">☄️</div>
+            <div class="timeline__content">
+              <div class="timeline__period">145 — 66 milhões de anos</div>
+              <h3 class="timeline__era">Cretáceo</h3>
+              <p class="timeline__desc">
+                O período mais longo e o mais diverso. T-Rex, Triceratops e
+                Velociraptor viveram aqui. Terminou com o impacto do asteroide
+                Chicxulub, encerrando a Era dos Dinossauros.
+              </p>
+              <div class="timeline__dinos">
+                <span>T-Rex</span>
+                <span>Triceratops</span>
+                <span>Velociraptor</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+      SEÇÃO BANNER — Chamada para ação final
+    ========================================== -->
+    <section class="banner">
+      <div class="banner__content">
+        <span class="banner__emoji">🦖</span>
+        <h2 class="banner__title">Fascinado pelos Dinossauros?</h2>
+        <p class="banner__text">
+          Continue explorando! A paleontologia é uma ciência em constante
+          descoberta — novos fósseis são encontrados toda semana.
+        </p>
+        <a href="#inicio" class="btn btn--primary">Voltar ao Início ↑</a>
+      </div>
+    </section>
+
+  </main>
+  <!-- fim <main> -->
+
+  <!-- ============================================
+    FOOTER — Rodapé da página
+    Fica FORA do <main>, mas dentro do <body>
+  ============================================ -->
+  <footer class="footer">
+    <img src="/img/nicodance.gif" style="display: block; margin: 0 auto;">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <span>🦖</span> DinoWorld
+      </div>
+      <!-- 
+        <p> com &copy; = símbolo de copyright ©
+        Entidades HTML: caracteres especiais com & e ;
+      -->
+      <p class="footer__copy">
+        &copy; 2025 DinoWorld — Se tá na internet é verdade
+      </p>
+    </div>
+  </footer>
+
+</body>
+<!-- ============================================
+  FIM DO BODY
+  Toda a página visível está entre <body> e </body>
+============================================ -->
+
+</html>

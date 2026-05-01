@@ -1,0 +1,1068 @@
+/* ================================================
+   🦕 DINOWORLD — styles.css
+   Arquivo de estilos do site de dinossauros
+   
+   ÍNDICE:
+   1. Variáveis CSS (Custom Properties)
+   2. Reset e Base
+   3. Tipografia
+   4. Componentes Reutilizáveis
+   5. Header e Nav
+   6. Seção Hero
+   7. Seção Sobre
+   8. Seção Dinossauros (Cards)
+   9. Seção Curiosidades
+   10. Seção Eras (Timeline)
+   11. Banner
+   12. Footer
+   13. Responsividade (Media Queries)
+================================================ */
+
+
+/* ================================================
+   1. VARIÁVEIS CSS
+   Defina cores, tamanhos etc. uma vez e reutilize!
+   Acesse com: var(--nome-da-variavel)
+================================================ */
+:root {
+  /* PALETA DE CORES */
+  --cor-fundo: #09080d;
+  /* Fundo escuro, preto com toque roxo */
+  --cor-fundo-2: #110e1a;
+  /* Fundo secundário, roxo bem escuro */
+  --cor-fundo-card: #1a1528;
+  /* Fundo dos cards */
+  --cor-primaria: #9b59b6;
+  /* Roxo principal */
+  --cor-primaria-clara: #c07fd4;
+  /* Roxo mais claro */
+  --cor-acento: #8e8e9e;
+  /* Cinza azulado para contraste */
+  --cor-acento-vermelho: #6c3483;
+  /* Roxo escuro para destaques */
+  --cor-texto: #ede8f5;
+  /* Branco levemente lilás */
+  --cor-texto-fraco: #7a7590;
+  /* Cinza médio azulado */
+  --cor-borda: #2e2542;
+  /* Borda roxa escura sutil */
+
+  /* TIPOGRAFIA */
+  --fonte-titulo: 'Bebas Neue', sans-serif;
+  --fonte-corpo: 'Crimson Pro', serif;
+  --fonte-mono: 'Space Mono', monospace;
+
+  /* ESPAÇAMENTO (sistema de 8px) */
+  --espaco-xs: 0.5rem;
+  /* 8px */
+  --espaco-sm: 1rem;
+  /* 16px */
+  --espaco-md: 1.5rem;
+  /* 24px */
+  --espaco-lg: 2rem;
+  /* 32px */
+  --espaco-xl: 3rem;
+  /* 48px */
+  --espaco-2xl: 5rem;
+  /* 80px */
+
+  /* BORDAS ARREDONDADAS */
+  --raio-sm: 8px;
+  --raio-md: 16px;
+  --raio-lg: 24px;
+
+  /* SOMBRAS */
+  --sombra-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --sombra-glow: 0 0 30px rgba(155, 89, 182, 0.4);
+}
+
+
+/* ================================================
+   2. RESET E BASE
+   Remove estilos padrão inconsistentes dos navegadores
+================================================ */
+
+/* Box-sizing: inclui padding e border no tamanho total */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Comportamento suave de scroll ao clicar em links âncora */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  /* Espaçamento entre linhas de texto */
+  overflow-x: hidden;
+  /* Impede scroll horizontal indesejado */
+}
+
+/* Remove decoração de lista por padrão */
+ul {
+  list-style: none;
+}
+
+/* Remove sublinhado de links por padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+  /* Herda a cor do elemento pai */
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ================================================
+   3. TIPOGRAFIA — Estilos de texto globais
+================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+em {
+  font-family: var(--fonte-corpo);
+  font-style: italic;
+  color: var(--cor-primaria);
+}
+
+strong {
+  color: var(--cor-primaria-clara);
+  font-weight: 600;
+}
+
+
+/* ================================================
+   4. COMPONENTES REUTILIZÁVEIS
+   Classes que você usa em vários lugares
+================================================ */
+
+/* CONTAINER — limita a largura e centraliza o conteúdo */
+.container {
+  max-width: 1200px;
+  /* Largura máxima */
+  margin: 0 auto;
+  /* Centraliza horizontalmente */
+  padding: 0 var(--espaco-lg);
+  /* Espaço nas laterais */
+}
+
+/* CABEÇALHO DE SEÇÃO */
+.section__header {
+  text-align: center;
+  margin-bottom: var(--espaco-2xl);
+}
+
+.section__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  /* clamp(min, preferido, max) — tamanho fluido! */
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-sm);
+}
+
+.section__title--light {
+  color: var(--cor-texto);
+}
+
+.section__subtitle {
+  color: var(--cor-texto-fraco);
+  font-size: 1.2rem;
+}
+
+/* BOTÕES */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Animação suave em todas as propriedades */
+}
+
+.btn--primary {
+  background-color: var(--cor-primaria);
+  color: #000;
+}
+
+/* :hover = aplica estilos quando o mouse passa por cima */
+.btn--primary:hover {
+  background-color: var(--cor-primaria-clara);
+  transform: translateY(-3px);
+  /* Sobe 3px */
+  box-shadow: var(--sombra-glow);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+}
+
+.btn--secondary:hover {
+  background-color: var(--cor-primaria);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* BADGES (etiquetas pequenas) */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 99px;
+  /* Píula arredondada */
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.badge--carnivore {
+  background-color: rgba(192, 57, 43, 0.2);
+  color: rgb(231, 76, 60);
+  border: 1px solid rgba(192, 57, 43, 0.4);
+}
+
+.badge--herbivore {
+  background-color: rgba(48, 192, 43, 0.2);
+  color:rgb(76, 220, 60);
+  border: 1px solid rgba(4, 91, 5, 0.464);
+}
+
+.badge--era {
+  background-color: rgba(155, 89, 182, 0.2);
+  color: var(--cor-primaria-clara);
+  border: 1px solid rgba(155, 89, 182, 0.4);
+}
+
+
+/* ================================================
+   5. HEADER E NAVEGAÇÃO
+================================================ */
+.header {
+  position: fixed;
+  /* Fica fixo no topo ao rolar a página */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* Fica na frente de todo o conteúdo */
+  background-color: rgba(9, 8, 13, 0.92);
+  /* Fundo semitransparente */
+  backdrop-filter: blur(12px);
+  /* Efeito "vidro fosco" — CSS moderno! */
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.nav {
+  display: flex;
+  /* Flexbox: coloca elementos em linha */
+  align-items: center;
+  /* Centraliza verticalmente */
+  justify-content: space-between;
+  /* Espaço entre logo e links */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem var(--espaco-lg);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--cor-primaria);
+}
+
+.nav__logo-icon {
+  font-size: 1.5rem;
+  animation: balanco 3s ease-in-out infinite;
+  /* Animação definida com @keyframes abaixo */
+}
+
+/* @keyframes define uma animação CSS */
+@keyframes balanco {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--espaco-lg);
+  /* Espaço entre os itens */
+}
+
+.nav__link {
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-texto-fraco);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav__link:hover {
+  color: var(--cor-primaria);
+}
+
+
+/* ================================================
+   6. SEÇÃO HERO
+================================================ */
+.hero {
+  min-height: 100vh;
+  /* Pelo menos 100% da altura da tela */
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  /* Compensa o header fixo */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Formas decorativas de fundo */
+.hero__bg-shapes {
+  position: absolute;
+  inset: 0;
+  /* Equivale a top:0; right:0; bottom:0; left:0 */
+  pointer-events: none;
+  /* Não interfere com cliques */
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  /* Círculo perfeito */
+  filter: blur(80px);
+  /* Borrão suave */
+  opacity: 0.15;
+}
+
+.shape--1 {
+  width: 600px;
+  height: 600px;
+  background: var(--cor-primaria);
+  top: -200px;
+  right: -100px;
+}
+
+.shape--2 {
+  width: 400px;
+  height: 400px;
+  background: var(--cor-acento);
+  bottom: -100px;
+  left: -100px;
+}
+
+.shape--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--cor-acento-vermelho);
+  top: 40%;
+  left: 30%;
+}
+
+.hero__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espaco-2xl) var(--espaco-lg);
+  position: relative;
+  z-index: 1;
+  /* Fica na frente das formas de fundo */
+}
+
+.hero__eyebrow {
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  color: var(--cor-primaria);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--espaco-sm);
+
+  /* Animação de entrada */
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero__title {
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-lg);
+  animation: fadeUp 0.8s ease 0.1s both;
+  /* Delay de 0.1s para entrada escalonada */
+}
+
+.hero__title--highlight {
+  color: var(--cor-primaria);
+  text-shadow: 0 0 40px #c07fd45f;
+  /* Brilho atrás do texto */
+}
+
+.hero__description {
+  max-width: 550px;
+  font-size: 1.25rem;
+  color: var(--cor-texto-fraco);
+  margin-bottom: var(--espaco-xl);
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--espaco-sm);
+  flex-wrap: wrap;
+  /* Quebra linha em telas pequenas */
+  margin-bottom: var(--espaco-2xl);
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+/* Estatísticas do Hero */
+.hero__stats {
+  display: flex;
+  gap: var(--espaco-xl);
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.stat__number {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-primaria);
+}
+
+.stat__label {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  color: var(--cor-texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Dinossauro decorativo */
+.hero__dino-art {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  text-align: center;
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.dino-emoji {
+  font-size: clamp(8rem, 20vw, 16rem);
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(200, 134, 10, 0.4));
+}
+
+.dino-shadow {
+  width: 60%;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(200, 134, 10, 0.3), transparent);
+  margin: 0 auto;
+  border-radius: 50%;
+  animation: sombra 4s ease-in-out infinite;
+}
+
+@keyframes sombra {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(0.7); opacity: 0.3; }
+}
+
+/* Animação de entrada dos elementos */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================================================
+   7. SEÇÃO SOBRE
+================================================ */
+.sobre {
+  padding: var(--espaco-2xl) 0;
+  background-color: var(--cor-fundo-2);
+  /* Fundo levemente diferente */
+}
+
+.sobre__grid {
+  display: grid;
+  /* CSS Grid: divide em colunas */
+  grid-template-columns: 1fr 1fr;
+  /* Duas colunas iguais */
+  gap: var(--espaco-2xl);
+  align-items: center;
+}
+
+.sobre__paragraph {
+  margin-bottom: var(--espaco-md);
+  color: var(--cor-texto-fraco);
+  font-size: 1.15rem;
+}
+
+.sobre__list {
+  margin-top: var(--espaco-lg);
+}
+
+/* li + li = seleciona um li que vem depois de outro li */
+.sobre__list li {
+  padding: var(--espaco-xs) 0;
+  color: var(--cor-texto-fraco);
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 1.1rem;
+}
+
+.sobre__list li:last-child {
+  border-bottom: none;
+}
+
+/* Card de fóssil */
+.fossil-card {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-xl);
+  text-align: center;
+  box-shadow: var(--sombra-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Linha dourada no topo do card */
+.fossil-card::before {
+  content: '';
+  /* Elemento pseudo (não existe no HTML) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-primaria-clara));
+}
+
+.fossil-card__icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--espaco-md);
+}
+
+.fossil-card__title {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espaco-sm);
+}
+
+.fossil-card__text {
+  color: var(--cor-texto-fraco);
+  font-size: 1rem;
+  margin-bottom: var(--espaco-md);
+}
+
+.fossil-card__badge {
+  display: inline-block;
+  background: #c07fd434;
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-primaria);
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+}
+
+
+/* ================================================
+   8. SEÇÃO DINOSSAUROS (CARDS)
+================================================ */
+.dinossauros {
+  padding: var(--espaco-2xl) 0;
+  background: var(--cor-fundo);
+}
+
+/* CSS Grid com colunas automáticas responsivas */
+.dino-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* auto-fit + minmax = responsivo automático! */
+  gap: var(--espaco-lg);
+}
+
+.dino-card {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.dino-card:hover {
+  transform: translateY(-8px);
+  /* Sobe ao passar o mouse */
+  box-shadow: var(--sombra-glow);
+  border-color: var(--cor-primaria);
+}
+
+/* Card destacado (featured) */
+.dino-card--featured {
+  border-color: var(--cor-primaria);
+}
+
+.dino-card__emoji {
+  text-align: center;
+  padding: var(--espaco-lg) var(--espaco-lg) 0;
+}
+
+.dino-card__emoji img {
+  max-width: 180px; /* controla o tamanho */
+  height: 180px;
+  display: block;
+  margin: 0 auto;
+}
+
+.dino-card__body {
+  padding: var(--espaco-lg);
+}
+
+.dino-card__badges {
+  display: flex;
+  gap: var(--espaco-xs);
+  margin-bottom: var(--espaco-sm);
+  flex-wrap: wrap;
+}
+
+.dino-card__name {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.2rem;
+}
+
+.dino-card__latin {
+  font-family: var(--fonte-corpo);
+  font-style: italic;
+  color: var(--cor-texto-fraco);
+  font-size: 0.9rem;
+  margin-bottom: var(--espaco-md);
+}
+
+.dino-card__desc {
+  color: var(--cor-texto-fraco);
+  font-size: 1rem;
+  margin-bottom: var(--espaco-lg);
+  line-height: 1.6;
+}
+
+/* Especificações técnicas do dinossauro */
+.dino-card__specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-sm);
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espaco-md);
+}
+
+.spec {
+  text-align: center;
+}
+
+.spec__icon {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.spec__label {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 0.6rem;
+  color: var(--cor-texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+
+.spec__value {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+
+
+/* ================================================
+   9. SEÇÃO CURIOSIDADES
+================================================ */
+.curiosidades {
+  padding: var(--espaco-2xl) 0;
+  background-color: var(--cor-fundo-2);
+}
+
+.curiosidades__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espaco-lg);
+}
+
+.fact-card {
+  display: flex;
+  gap: var(--espaco-md);
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-lg);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.fact-card:hover {
+  border-color: var(--cor-primaria);
+  transform: translateX(4px);
+  /* Desloca para a direita no hover */
+}
+
+.fact-card__number {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  color: var(--cor-borda);
+  line-height: 1;
+  flex-shrink: 0;
+  /* Não encolhe */
+}
+
+.fact-card:hover .fact-card__number {
+  color: var(--cor-primaria);
+}
+
+.fact-card__title {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-xs);
+}
+
+.fact-card__text {
+  color: var(--cor-texto-fraco);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* ================================================
+   10. SEÇÃO ERAS (TIMELINE)
+================================================ */
+.eras {
+  padding: var(--espaco-2xl) 0;
+  background: var(--cor-fundo);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Linha vertical central da timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  /* No centro */
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--cor-primaria), transparent);
+}
+
+.timeline__item {
+  display: flex;
+  gap: var(--espaco-xl);
+  margin-bottom: var(--espaco-2xl);
+  align-items: flex-start;
+}
+
+/* Item do lado direito da timeline */
+.timeline__item--right {
+  flex-direction: row-reverse;
+  /* Inverte a ordem dos elementos */
+  text-align: right;
+}
+
+.timeline__dot {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  /* O emoji não encolhe */
+  position: relative;
+  z-index: 1;
+}
+
+.timeline__content {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-lg);
+  flex: 1;
+  /* Ocupa o espaço disponível */
+}
+
+.timeline__period {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-primaria);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--espaco-xs);
+}
+
+.timeline__era {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-sm);
+}
+
+.timeline__desc {
+  color: var(--cor-texto-fraco);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--espaco-md);
+}
+
+/* Tags de dinossauros da era */
+.timeline__dinos {
+  display: flex;
+  gap: var(--espaco-xs);
+  flex-wrap: wrap;
+}
+
+.timeline__item--right .timeline__dinos {
+  justify-content: flex-end;
+}
+
+.timeline__dinos span {
+  background: rgba(155, 89, 182, 0.1);
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-fraco);
+  padding: 0.2rem 0.7rem;
+  border-radius: 99px;
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+}
+
+
+/* ================================================
+   11. BANNER
+================================================ */
+.banner {
+  background: linear-gradient(135deg, var(--cor-fundo-2), var(--cor-fundo));
+  border-top: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: var(--espaco-2xl) var(--espaco-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fundo decorativo do banner */
+.banner::before {
+  content: '🦖';
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.03;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Centraliza o elemento */
+}
+
+.banner__content {
+  position: relative;
+  z-index: 1;
+}
+
+.banner__emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--espaco-md);
+}
+
+.banner__title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-sm);
+}
+
+.banner__text {
+  color: var(--cor-texto-fraco);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto var(--espaco-xl);
+}
+
+
+/* ================================================
+   12. FOOTER
+================================================ */
+.footer {
+  background: var(--cor-fundo);
+  padding: var(--espaco-xl) var(--espaco-lg);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espaco-sm);
+}
+
+.footer__copy {
+  color: var(--cor-texto-fraco);
+  font-size: 1rem;
+  margin-bottom: var(--espaco-xs);
+}
+
+.footer__credit {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-borda);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+
+/* ================================================
+   13. RESPONSIVIDADE — Media Queries
+   Adapta o layout para diferentes tamanhos de tela
+   
+   Estratégia "mobile-first":
+   Primeiro o mobile, depois ajusta para desktop
+================================================ */
+
+/* Telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  
+  /* Nav vira coluna em telas pequenas */
+  .nav {
+    flex-direction: column;
+    gap: var(--espaco-sm);
+    padding: var(--espaco-sm) var(--espaco-md);
+  }
+
+  .nav__links {
+    gap: var(--espaco-md);
+  }
+
+  /* Hero em coluna */
+  .hero {
+    padding-top: 120px;
+    /* Mais espaço pra compensar o header maior */
+  }
+
+  .hero__dino-art {
+    /* Esconde o dino em mobile (ocupa muito espaço) */
+    display: none;
+  }
+
+  .hero__stats {
+    gap: var(--espaco-lg);
+  }
+
+  /* Sobre: uma coluna só */
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    /* Uma única coluna */
+  }
+
+  /* Timeline simplificada em mobile */
+  .timeline::before {
+    display: none;
+    /* Remove a linha central */
+  }
+
+  .timeline__item,
+  .timeline__item--right {
+    flex-direction: column;
+    /* Empilha verticalmente */
+    text-align: left;
+  }
+
+  .timeline__item--right .timeline__dinos {
+    justify-content: flex-start;
+  }
+
+  /* Grid de cards em coluna única */
+  .dino-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dino-card__specs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+
+  .hero__actions {
+    flex-direction: column;
+    /* Botões em coluna */
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__stats {
+    flex-direction: column;
+    gap: var(--espaco-sm);
+  }
+
+  .dino-card__specs {
+    grid-template-columns: 1fr;
+    /* Especificações em coluna única */
+  }
+
+  .nav__links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
